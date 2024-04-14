@@ -83,7 +83,7 @@ sortBtn.addEventListener("click", () => {
         const oldestMovie = images.sort((a,b) => a.releaseDate.getTime() - b.releaseDate.getTime());
         showImages(oldestMovie);
 
-      // the message inside notification element
+      // the message inside notification
         const notimessage = "Movies from oldest to newest";
         noti(notimessage);
       }else if(sortTagId === "newest") {
