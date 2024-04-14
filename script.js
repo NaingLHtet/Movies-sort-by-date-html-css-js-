@@ -5,6 +5,7 @@ const movieListCon = document.querySelector(".movieListCon");
 // send top button
 const sendUpBtn = document.querySelector(".sendUp-btn");
 
+const notiCon = document.querySelector(".notiCon");
 
 
 const images = [
@@ -81,18 +82,31 @@ sortBtn.addEventListener("click", () => {
       // show movies from oldest to newest
         const oldestMovie = images.sort((a,b) => a.releaseDate.getTime() - b.releaseDate.getTime());
         showImages(oldestMovie);
+
+      // the message inside notification element
+        const notimessage = "Movies from oldest to newest";
+        noti(notimessage);
       }else if(sortTagId === "newest") {
       // show movies from newest to oldest
         const newestMovie = images.sort((a,b) => b.releaseDate.getTime() - a.releaseDate.getTime());
         showImages(newestMovie);
+
+        const notimessage = "Movies from newest to oldest";
+        noti(notimessage);
       }else if(sortTagId === "atoZ") {
       // show movies from name a to z
         const NameAtoZ = images.sort((a,b) => a.movieName.localeCompare(b.movieName));
         showImages(NameAtoZ);
+
+        const notimessage = "Movies name A to Z";
+        noti(notimessage);
       }else {
       // show movies from name z to a
         const NameZtoA = images.sort((a,b) => b.movieName.localeCompare(a.movieName));
         showImages(NameZtoA);
+
+        const notimessage = "Movies name Z to A";
+        noti(notimessage);
       };
     // remove dropdown list after the li tag is clicked
       ulContainer.remove();
@@ -143,3 +157,24 @@ sendUpBtn.addEventListener("click", () => {
     behavior: "smooth"
   });
 });
+
+
+
+// notification on clicking the sort list
+function noti(notimessage) {
+  notiCon.innerHTML = "";
+  const message = document.createElement("div");
+  message.className = "noti";
+  message.textContent = notimessage;
+  notiCon.appendChild(message);
+  
+  message.style.bottom = `-${message.offsetHeight}px`;
+  
+  setTimeout(() => {
+    message.style.bottom = "0px";
+  }, 100);
+  
+  setTimeout(() => {
+    message.style.bottom = `-${message.offsetHeight}px`;
+  }, 2000);
+};
