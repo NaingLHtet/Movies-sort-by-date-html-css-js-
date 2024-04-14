@@ -140,3 +140,24 @@ h1 {
 .sendUp-btn:hover {
   opacity: 1;
 }
+
+/* notification */
+.notiCon {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noti {
+  position: relative;
+  padding: 10px 20px;
+  background-color: #141515;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 2px;
+  transition: 0.4s ease-in-out;
+}
